@@ -2,6 +2,7 @@
    VELORA — script.js  (One-Page Edition)
    Smooth Scroll · Active Nav · Carousel · Reveals
    Counter Animation · Pre-filled WhatsApp
+   UPDATED: Fixed nav scroll offset
 ═══════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = ['hero','trusted','services','work','pricing','process','about','contact'];
 
   /* ════════════════════════════════
-     SMOOTH SCROLL (all #anchor links)
+     SMOOTH SCROLL (all #anchor links) - FIXED OFFSET
   ════════════════════════════════ */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
@@ -25,9 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      const offset = navbar ? navbar.offsetHeight + 10 : 80;
+      
+      // Calculate offset based on navbar height with extra padding
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const offset = navbarHeight + 20;
+      
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
+      
       // close mobile menu
       navLinksWrap?.classList.remove('open');
       hamburger?.classList.remove('open');
@@ -118,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
-      const offset = navbar ? navbar.offsetHeight + 60 : 100;
+      const offset = navbar ? navbar.offsetHeight + 80 : 120;
       if (el.getBoundingClientRect().top <= offset) currentId = id;
     });
 
