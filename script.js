@@ -220,25 +220,71 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ════════════════════════════════
-     CONTACT FORM
-  ════════════════════════════════ */
-  const form = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submitBtn');
-  if (form && submitBtn) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const orig = submitBtn.textContent;
-      submitBtn.textContent = '✓  Message Sent!';
-      submitBtn.style.background = 'linear-gradient(135deg,#34c759,#1a8738)';
-      submitBtn.disabled = true;
+   CONTACT FORM - WORKING WITH WEB3FORMS
+═══════════════════════════════════ */
+const form = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const formStatus = document.getElementById('form-status');
+
+if (form && submitBtn) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Show loading state
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = '⏳ Sending...';
+    submitBtn.disabled = true;
+    
+    if (formStatus) formStatus.innerHTML = '';
+    
+    try {
+      const formData = new FormData(form);
+      
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        // Success!
+        submitBtn.textContent = '✓ Message Sent!';
+        submitBtn.style.background = 'linear-gradient(135deg,#34c759,#1a8738)';
+        
+        if (formStatus) {
+          formStatus.innerHTML = '<div style="background:#34c75920; padding:12px; border-radius:12px; color:#34c759; font-size:0.85rem;">✓ Thank you! We\'ll get back to you within 24 hours.</div>';
+        }
+        
+        form.reset();
+        
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.background = '';
+          submitBtn.disabled = false;
+        }, 4000);
+        
+      } else {
+        throw new Error('Submission failed');
+      }
+      
+    } catch (error) {
+      // Error!
+      submitBtn.textContent = '❌ Failed. Try again.';
+      submitBtn.style.background = 'linear-gradient(135deg,#ff3b30,#d70015)';
+      
+      if (formStatus) {
+        formStatus.innerHTML = '<div style="background:#ff3b3020; padding:12px; border-radius:12px; color:#ff3b30; font-size:0.85rem;">❌ Something went wrong. Please try again or WhatsApp us directly.</div>';
+      }
+      
       setTimeout(() => {
-        submitBtn.textContent = orig;
+        submitBtn.textContent = originalText;
         submitBtn.style.background = '';
         submitBtn.disabled = false;
-        form.reset();
-      }, 3500);
-    });
-  }
+      }, 4000);
+    }
+  });
+}
 
   /* ════════════════════════════════
      PARALLAX ORBS (subtle mouse)
@@ -264,4 +310,168 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.head.appendChild(style);
 
+});
+/* ══════════════════════════════════════
+   PREMIUM WORK SHOWCASE - STACKED GALLERY
+══════════════════════════════════════ */
+
+class ShowcaseGallery {
+  constructor(elementId) {
+    this.stack = document.getElementById(elementId);
+    this.items = Array.from(this.stack.querySelectorAll('.showcase-item'));
+    this.currentIndex = 2; // Start with 3rd item as active (0-indexed)
+    this.totalItems = this.items.length;
+    this.autoSlideInterval = null;
+    this.isAnimating = false;
+    
+    this.init();
+  }
+  
+  init() {
+    this.updatePositions();
+    this.attachEvents();
+    this.createDots();
+    this.startAutoSlide();
+  }
+  
+  updatePositions() {
+    // Reset all positions
+    this.items.forEach((item, idx) => {
+      item.classList.remove('active', 'pos-2', 'pos-1', 'pos--1', 'pos--2', 'hidden');
+      
+      let position = idx - this.currentIndex;
+      
+      // Handle infinite loop wrapping
+      if (position > 2) position = position - this.totalItems;
+      if (position < -2) position = position + this.totalItems;
+      
+      // Assign position classes
+      if (position === 0) {
+        item.classList.add('active');
+      } else if (position === 1) {
+        item.classList.add('pos-2');
+      } else if (position === -1) {
+        item.classList.add('pos--2');
+      } else if (position === 2) {
+        item.classList.add('pos-1');
+      } else if (position === -2) {
+        item.classList.add('pos--1');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  }
+  
+  slideNext() {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+    this.currentIndex = (this.currentIndex + 1) % this.totalItems;
+    this.updatePositions();
+    this.updateDots();
+    setTimeout(() => { this.isAnimating = false; }, 500);
+  }
+  
+  slidePrev() {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+    this.currentIndex = (this.currentIndex - 1 + this.totalItems) % this.totalItems;
+    this.updatePositions();
+    this.updateDots();
+    setTimeout(() => { this.isAnimating = false; }, 500);
+  }
+  
+  goToSlide(index) {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+    this.currentIndex = index;
+    this.updatePositions();
+    this.updateDots();
+    setTimeout(() => { this.isAnimating = false; }, 500);
+  }
+  
+  attachEvents() {
+    // Click on cards to open website
+    this.items.forEach((item, idx) => {
+      item.addEventListener('click', (e) => {
+        // Don't trigger if clicking on active card (just open website)
+        const url = item.getAttribute('data-url');
+        if (url && url !== '#') {
+          window.open(url, '_blank');
+        }
+      });
+    });
+    
+    // Navigation buttons
+    const prevBtn = document.querySelector('.showcase-prev');
+    const nextBtn = document.querySelector('.showcase-next');
+    
+    if (prevBtn) prevBtn.addEventListener('click', () => this.slidePrev());
+    if (nextBtn) nextBtn.addEventListener('click', () => this.slideNext());
+    
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    this.stack.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    this.stack.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) this.slideNext();
+        else this.slidePrev();
+        this.resetAutoSlide();
+      }
+    });
+  }
+  
+  createDots() {
+    const dotsContainer = document.getElementById('showcaseDots');
+    if (!dotsContainer) return;
+    
+    dotsContainer.innerHTML = '';
+    const visibleCount = Math.min(this.totalItems, 7); // Show dots for first 7 items
+    
+    for (let i = 0; i < visibleCount; i++) {
+      const dot = document.createElement('span');
+      dot.classList.add('showcase-dot');
+      if (i === this.currentIndex % visibleCount) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        this.goToSlide(i);
+        this.resetAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+  
+  updateDots() {
+    const dots = document.querySelectorAll('.showcase-dot');
+    const visibleCount = dots.length;
+    const activeDotIndex = this.currentIndex % visibleCount;
+    
+    dots.forEach((dot, idx) => {
+      if (idx === activeDotIndex) dot.classList.add('active');
+      else dot.classList.remove('active');
+    });
+  }
+  
+  startAutoSlide() {
+    this.autoSlideInterval = setInterval(() => {
+      this.slideNext();
+    }, 4000);
+  }
+  
+  resetAutoSlide() {
+    clearInterval(this.autoSlideInterval);
+    this.startAutoSlide();
+  }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('showcaseStack')) {
+    new ShowcaseGallery('showcaseStack');
+  }
 });
