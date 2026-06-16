@@ -53,12 +53,28 @@
 
 <!-- Main Stylesheet -->
 <link rel="stylesheet" href="style.css" />
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="images/favicon_io/site.webmanifest">
+<link rel="shortcut icon" href="images/favicon_io/favicon.ico" type="image/x-icon">
+
+<!-- Android Chrome -->
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon_io/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/favicon_io/android-chrome-512x512.png">
+
+<!-- Theme color for mobile browsers -->
+<meta name="theme-color" content="#7c6ff7">
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">Vel<span class="dot">·</span>ora</a>
+  <a href="#hero" class="nav-logo">
+  <img src="images/logo.png" alt="Velora" class="logo-icon">
+  <span>Velora</span>
+</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#hero"     class="nav-link">Home</a></li>
     <li><a href="#about"    class="nav-link">About Us</a></li>
@@ -132,31 +148,37 @@
   </div>
 </section>
 
-<!-- ══ TRUSTED BY ══ -->
-<section id="trusted">
-  <div class="container">
-    <div class="trusted-strip reveal">
-      <span class="trusted-label">Trusted by</span>
-      <div class="trusted-logos-wrapper">
-        <div class="trusted-logos">
-          <span class="trust-logo">Aether</span>
-          <span class="trust-logo">Ember</span>
-          <span class="trust-logo">Luminos</span>
-          <span class="trust-logo">GreenRoot</span>
-          <span class="trust-logo">Nuveau</span>
-          <span class="trust-logo">MedConnect</span>
-          <!-- Duplicate for seamless loop -->
-          <span class="trust-logo">Aether</span>
-          <span class="trust-logo">Ember</span>
-          <span class="trust-logo">Luminos</span>
-          <span class="trust-logo">GreenRoot</span>
-          <span class="trust-logo">Nuveau</span>
-          <span class="trust-logo">MedConnect</span>
-        </div>
+<!-- ══ TRUSTED MARQUEE STRIP ══ -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-container">
+    <span class="trusted-label">✦ Trusted by</span>
+    <div class="marquee-track-wrapper">
+      <div class="marquee-track">
+        <span class="mi">Microsoft <em class="mdot">✦</em></span>
+        <span class="mi">Google <em class="mdot">✦</em></span>
+        <span class="mi">Amazon <em class="mdot">✦</em></span>
+        <span class="mi">Meta <em class="mdot">✦</em></span>
+        <span class="mi">Netflix <em class="mdot">✦</em></span>
+        <span class="mi">Spotify <em class="mdot">✦</em></span>
+        <span class="mi">Adobe <em class="mdot">✦</em></span>
+        <span class="mi">Salesforce <em class="mdot">✦</em></span>
+        <span class="mi">Uber <em class="mdot">✦</em></span>
+        <span class="mi">Airbnb <em class="mdot">✦</em></span>
+        <!-- Duplicate for seamless loop -->
+        <span class="mi">Microsoft <em class="mdot">✦</em></span>
+        <span class="mi">Google <em class="mdot">✦</em></span>
+        <span class="mi">Amazon <em class="mdot">✦</em></span>
+        <span class="mi">Meta <em class="mdot">✦</em></span>
+        <span class="mi">Netflix <em class="mdot">✦</em></span>
+        <span class="mi">Spotify <em class="mdot">✦</em></span>
+        <span class="mi">Adobe <em class="mdot">✦</em></span>
+        <span class="mi">Salesforce <em class="mdot">✦</em></span>
+        <span class="mi">Uber <em class="mdot">✦</em></span>
+        <span class="mi">Airbnb <em class="mdot">✦</em></span>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ══ SERVICES ══ -->
 <section id="services">
@@ -179,32 +201,137 @@
   </div>
 </section>
 
-<!-- ══ RECENT WORK CAROUSEL ══ -->
+<!-- ══ PREMIUM WORK SHOWCASE ══ -->
 <section id="work">
   <div class="container">
-    <div class="sec-hdr-split">
-      <div>
-        <div class="sec-tag reveal">Recent Work</div>
-        <h2 class="sec-h2 reveal d1">Projects we're <em>proud of.</em></h2>
-      </div>
-      <div class="carousel-nav reveal d2">
-        <button class="c-btn c-prev" aria-label="Previous">&#8592;</button>
-        <button class="c-btn c-next" aria-label="Next">&#8594;</button>
-      </div>
+    <div class="sec-hdr-center reveal">
+      <div class="sec-tag">Our Work</div>
+      <h2 class="sec-h2">Websites we've <em>built with pride.</em></h2>
+      <p class="sec-sub">Click any project to visit the live website – experience the quality firsthand.</p>
     </div>
-    <div class="carousel-wrap">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="glass-card work-card"><div class="work-thumb wt-1"><span class="w-icon"><i class="fa-solid fa-mountain"></i></span></div><div class="work-info"><div class="wcat">E-commerce · Shopify</div><div class="wtitle">Aether Outdoors</div><div class="wdesc">+230% revenue growth in 6 months</div></div></div>
-        <div class="glass-card work-card"><div class="work-thumb wt-2"><span class="w-icon"><i class="fa-solid fa-mug-hot"></i></span></div><div class="work-info"><div class="wcat">Brand Site · Next.js</div><div class="wtitle">Ember Coffee Co.</div><div class="wdesc">Flagship brand redesign & CMS</div></div></div>
-        <div class="glass-card work-card"><div class="work-thumb wt-3"><span class="w-icon"><i class="fa-solid fa-chart-line"></i></span></div><div class="work-info"><div class="wcat">SaaS · React</div><div class="wtitle">Luminos Analytics</div><div class="wdesc">Complex dashboard UI from scratch</div></div></div>
-        <div class="glass-card work-card"><div class="work-thumb wt-4"><span class="w-icon"><i class="fa-solid fa-leaf"></i></span></div><div class="work-info"><div class="wcat">Web App · Full Stack</div><div class="wtitle">GreenRoot Network</div><div class="wdesc">Community platform for 50k+ users</div></div></div>
-        <div class="glass-card work-card"><div class="work-thumb wt-5"><span class="w-icon"><i class="fa-regular fa-gem"></i></span></div><div class="work-info"><div class="wcat">Luxury · Custom CMS</div><div class="wtitle">Nuveau Jewels</div><div class="wdesc">Premium e-catalogue with AR preview</div></div></div>
-        <div class="glass-card work-card"><div class="work-thumb wt-6"><span class="w-icon"><i class="fa-solid fa-hospital"></i></span></div><div class="work-info"><div class="wcat">Healthcare · Portal</div><div class="wtitle">MedConnect India</div><div class="wdesc">Patient booking system, 10k+ daily</div></div></div>
+
+    <div class="showcase-wrapper">
+      <button class="showcase-nav showcase-prev" aria-label="Previous">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      
+      <div class="showcase-container">
+        <div class="showcase-stack" id="showcaseStack">
+          
+          <!-- PROJECT 1 - Dentist Website -->
+          <div class="showcase-item" data-url="https://shail9349.github.io/dentist/" data-index="0">
+            <div class="showcase-card">
+              <div class="showcase-img" style="background-image: url('images/Screenshot 2026-06-05 194015.png');">
+                <div class="showcase-overlay">
+                  <div class="showcase-content">
+                    <h3 class="showcase-title">Dentist Design</h3>
+                    <p class="showcase-category">Dental Clinic Website</p>
+                    <span class="showcase-link">Visit Website →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PROJECT 2 -->
+          <div class="showcase-item" data-url="https://shail9349.github.io/skinkare/" data-index="1">
+            <div class="showcase-card">
+              <div class="showcase-img" style="background-image: url('images/Screenshot 2026-06-05 194058.png');">
+                <div class="showcase-overlay">
+                  <div class="showcase-content">
+                    <h3 class="showcase-title">Ember Coffee Co.</h3>
+                    <p class="showcase-category">Brand & E-Commerce</p>
+                    <span class="showcase-link">Visit Website →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PROJECT 3 - CENTER ACTIVE -->
+          <div class="showcase-item active" data-url="https://your-website-3.com" data-index="2">
+            <div class="showcase-card">
+              <div class="showcase-img" style="background-image: url('images/Screenshot 2026-06-05 194126.png');">
+                <div class="showcase-overlay">
+                  <div class="showcase-content">
+                    <h3 class="showcase-title">Luminos Analytics</h3>
+                    <p class="showcase-category">SaaS Dashboard</p>
+                    <span class="showcase-link">Visit Website →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PROJECT 4 -->
+          <div class="showcase-item" data-url="https://your-website-4.com" data-index="3">
+            <div class="showcase-card">
+              <div class="showcase-img" style="background-image: url('images/Screenshot 2026-06-05 194147.png');">
+                <div class="showcase-overlay">
+                  <div class="showcase-content">
+                    <h3 class="showcase-title">GreenRoot Network</h3>
+                    <p class="showcase-category">Community Platform</p>
+                    <span class="showcase-link">Visit Website →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PROJECT 5 -->
+          <div class="showcase-item" data-url="https://your-website-5.com" data-index="4">
+            <div class="showcase-card">
+              <div class="showcase-img" style="background-image: url('images/Screenshot 2026-06-05 194211.png');">
+                <div class="showcase-overlay">
+                  <div class="showcase-content">
+                    <h3 class="showcase-title">Nuveau Jewels</h3>
+                    <p class="showcase-category">Luxury E-Catalogue</p>
+                    <span class="showcase-link">Visit Website →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PROJECT 6 -->
+          <div class="showcase-item" data-url="https://your-website-6.com" data-index="5">
+            <div class="showcase-card">
+              <div class="showcase-img" style="background-image: url('images/Screenshot 2026-06-05 194249.png');">
+                <div class="showcase-overlay">
+                  <div class="showcase-content">
+                    <h3 class="showcase-title">MedConnect India</h3>
+                    <p class="showcase-category">Healthcare Portal</p>
+                    <span class="showcase-link">Visit Website →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PROJECT 7 (for infinite loop) -->
+          <div class="showcase-item" data-url="https://your-website-1.com" data-index="6">
+            <div class="showcase-card">
+              <div class="showcase-img" style="background-image: url('images/Screenshot 2026-06-05 194710.png');">
+                <div class="showcase-overlay">
+                  <div class="showcase-content">
+                    <h3 class="showcase-title">Aether Outdoors</h3>
+                    <p class="showcase-category">Adventure E-Commerce</p>
+                    <span class="showcase-link">Visit Website →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
       </div>
+      
+      <button class="showcase-nav showcase-next" aria-label="Next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
-    <div class="carousel-dots" id="carouselDots">
-      <span class="c-dot active"></span><span class="c-dot"></span><span class="c-dot"></span><span class="c-dot"></span>
-    </div>
+    
+    <div class="showcase-dots" id="showcaseDots"></div>
   </div>
 </section>
 
@@ -217,56 +344,80 @@
       <p class="sec-sub">No hidden fees. No surprises. Just great work at a fair price.</p>
     </div>
     <div class="pricing-grid">
+      <!-- STARTER PLAN - ₹9,999 -->
       <div class="glass-card p-card reveal">
         <p class="p-name">Starter</p>
-        <div class="p-price-row"><span class="p-cur">₹</span><span class="p-amt">14,999</span></div>
+        <div class="p-price-row"><span class="p-cur">₹</span><span class="p-amt">9,999</span></div>
         <p class="p-cycle">one-time project fee</p>
         <div class="p-div"></div>
         <ul class="p-features">
-          <li><span class="p-chk">✓</span>Up to 5-page website</li>
-          <li><span class="p-chk">✓</span>Mobile-responsive design</li>
-          <li><span class="p-chk">✓</span>Basic CMS integration</li>
-          <li><span class="p-chk">✓</span>SEO foundations setup</li>
-          <li><span class="p-chk">✓</span>Contact form & analytics</li>
-          <li><span class="p-chk">✓</span>2 rounds of revisions</li>
-          <li><span class="p-chk">✓</span>30-day post-launch support</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>5 pages Website</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Logo</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Free SSL Certificates</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>SEO Friendly Website</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Inquiry Form</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Mobile-friendly responsive design</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Social media integration</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>1 Year Free Cloud Hosting</li>
+          <li class="excluded"><span class="p-cross"><i class="fa-solid fa-xmark"></i></span>Domain name</li>
+          <li class="excluded"><span class="p-cross"><i class="fa-solid fa-xmark"></i></span>CMS Panel</li>
+          <li class="excluded"><span class="p-cross"><i class="fa-solid fa-xmark"></i></span>Professional email ID</li>
+          <li class="excluded"><span class="p-cross"><i class="fa-solid fa-xmark"></i></span>Unlimited image/video upload</li>
+          <li class="excluded"><span class="p-cross"><i class="fa-solid fa-xmark"></i></span>Custom design</li>
+          <li class="excluded"><span class="p-cross"><i class="fa-solid fa-xmark"></i></span>24/7 customer support</li>
         </ul>
-        <a href="#contact" class="p-btn p-btn-outline">Get Started</a>
+        <a href="#contact" class="p-btn p-btn-outline">Get Started →</a>
       </div>
-      <div class="glass-card p-card featured reveal d1">
+
+      <!-- GROWTH PLAN - ₹19,999 (MOST POPULAR - NO COLOR FILL) -->
+      <div class="glass-card p-card featured-popular reveal d1">
         <div class="pop-tag">✦ Most Popular</div>
         <p class="p-name">Growth</p>
-        <div class="p-price-row"><span class="p-cur">₹</span><span class="p-amt">24,999</span></div>
+        <div class="p-price-row"><span class="p-cur">₹</span><span class="p-amt">19,999</span></div>
         <p class="p-cycle">one-time project fee</p>
         <div class="p-div"></div>
         <ul class="p-features">
-          <li><span class="p-chk">✓</span>Up to 15-page website</li>
-          <li><span class="p-chk">✓</span>Custom UI/UX design</li>
-          <li><span class="p-chk">✓</span>Advanced CMS integration</li>
-          <li><span class="p-chk">✓</span>Full SEO strategy & impl.</li>
-          <li><span class="p-chk">✓</span>E-commerce (100 products)</li>
-          <li><span class="p-chk">✓</span>Performance optimization</li>
-          <li><span class="p-chk">✓</span>1 API integration</li>
-          <li><span class="p-chk">✓</span>60-day post-launch support</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>10 pages Website</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Logo</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Free SSL Certificates</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Advanced SEO Friendly Website</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Advanced Inquiry Form</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Mobile-friendly responsive design</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Social media integration</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>1 Year Free Cloud Hosting</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>1 Year Free Domain Name (.com .in .org)</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>CMS Panel</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Free professional email ID (ex: hello@yourbrand.com)</li>
+          <li class="excluded"><span class="p-cross"><i class="fa-solid fa-xmark"></i></span>Unlimited image/video upload</li>
+          <li class="excluded"><span class="p-cross"><i class="fa-solid fa-xmark"></i></span>Custom design</li>
+          <li class="excluded"><span class="p-cross"><i class="fa-solid fa-xmark"></i></span>24/7 customer support</li>
         </ul>
-        <a href="#contact" class="p-btn p-btn-white">Get Started</a>
+        <a href="#contact" class="p-btn p-btn-popular">Get Started →</a>
       </div>
+
+      <!-- PREMIUM PLAN - ₹34,999 -->
       <div class="glass-card p-card reveal d2">
         <p class="p-name">Premium</p>
         <div class="p-price-row"><span class="p-cur">₹</span><span class="p-amt">34,999</span></div>
         <p class="p-cycle">one-time project fee</p>
         <div class="p-div"></div>
         <ul class="p-features">
-          <li><span class="p-chk">✓</span>Unlimited pages & scope</li>
-          <li><span class="p-chk">✓</span>Complete design system</li>
-          <li><span class="p-chk">✓</span>Custom web app / SaaS</li>
-          <li><span class="p-chk">✓</span>Multi-language support</li>
-          <li><span class="p-chk">✓</span>Unlimited API integrations</li>
-          <li><span class="p-chk">✓</span>Dedicated project manager</li>
-          <li><span class="p-chk">✓</span>Security audit & load testing</li>
-          <li><span class="p-chk">✓</span>90-day priority SLA support</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>UNLIMITED pages Website</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Logo</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Free SSL Certificates</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Advanced SEO Friendly Website</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Advanced Inquiry Form</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Mobile-friendly responsive design</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Social media integration</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>3 Year Free Cloud Hosting</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>1 Year Free Domain Name (.com .in .org)</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>CMS Panel</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Free professional email ID (ex: hello@yourbrand.com)</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Unlimited Images & Videos Upload</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Premium Design</li>
+          <li class="included"><span class="p-chk"><i class="fa-solid fa-check"></i></span>Free 24/7 customer support</li>
         </ul>
-        <a href="#contact" class="p-btn p-btn-outline">Let's Talk</a>
+        <a href="#contact" class="p-btn p-btn-outline">Get Started →</a>
       </div>
     </div>
   </div>
@@ -345,23 +496,62 @@
           <a href="https://github.com/shail9349" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
       </div>
-      <form class="contact-form glass-card reveal d1" id="contactForm">
+
+      <!-- WORKING FORM WITH WEB3FORMS -->
+      <form class="contact-form glass-card reveal d1" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        
+        <!-- Web3Forms Access Key (Your unique key) -->
+        <input type="hidden" name="access_key" value="b5651da2-be6f-495e-9d68-1e3a55b64f66">
+        
+        <!-- Email Settings -->
+        <input type="hidden" name="subject" value="New Inquiry from Velora Website">
+        <input type="hidden" name="from_name" value="Velora Web Tech">
+        
+        <!-- Spam Prevention (DO NOT REMOVE) -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        
+        <!-- Success message area (will show after submission) -->
+        <div id="form-status" style="margin-bottom: 1rem;"></div>
+        
         <div class="form-row">
-          <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Rahul" required/></div>
-          <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Sharma"/></div>
+          <div class="form-group">
+            <label class="form-label">First Name *</label>
+            <input class="form-input" type="text" name="first_name" placeholder="Rahul" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" name="last_name" placeholder="Sharma"/>
+          </div>
         </div>
-        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="rahul@company.com" required/></div>
-        <div class="form-group"><label class="form-label">Phone (optional)</label><input class="form-input" type="tel" placeholder="+91 83769 01331"/></div>
+        
+        <div class="form-group">
+          <label class="form-label">Email Address *</label>
+          <input class="form-input" type="email" name="email" placeholder="rahul@company.com" required/>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Phone (optional)</label>
+          <input class="form-input" type="tel" name="phone" placeholder="+91 83769 01331"/>
+        </div>
+        
         <div class="form-group">
           <label class="form-label">Service Interested In</label>
-          <select class="form-select">
+          <select class="form-select" name="service">
             <option value="" disabled selected>Select a service</option>
-            <option>UI & UX Design</option><option>Web Development</option>
-            <option>E-Commerce Store</option><option>SEO & Performance</option>
-            <option>Full Project</option><option>Not sure yet</option>
+            <option>UI & UX Design</option>
+            <option>Web Development</option>
+            <option>E-Commerce Store</option>
+            <option>SEO & Performance</option>
+            <option>Full Project</option>
+            <option>Not sure yet</option>
           </select>
         </div>
-        <div class="form-group"><label class="form-label">Tell us about your project</label><textarea class="form-textarea" placeholder="What are you building? What's your timeline and budget?"></textarea></div>
+        
+        <div class="form-group">
+          <label class="form-label">Tell us about your project</label>
+          <textarea class="form-textarea" name="message" placeholder="What are you building? What's your timeline and budget?"></textarea>
+        </div>
+        
         <button type="submit" class="btn-primary" style="width:100%;justify-content:center;" id="submitBtn">Send Message →</button>
       </form>
     </div>
